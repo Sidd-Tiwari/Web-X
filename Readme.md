@@ -70,14 +70,6 @@
   - **CSS3**: For styling the platform and ensuring a responsive design.
   - **JavaScript**: For handling dynamic content like skill selection, job listings, and form validation.
   - **Bootstrap**: For responsive layout and components.
-  
-- **Backend** (Choose one or configure as per your need):
-  - **Node.js**: For server-side scripting and API creation.
-  - **PHP**: For backend development (if using a PHP-based setup).
-  - **MySQL**: For storing developer and recruiter data, job postings, etc.
-
-- **Database**: 
-  - **MySQL/MongoDB**: To store user information, job postings, and other related data.
 
 ## Credits
 
