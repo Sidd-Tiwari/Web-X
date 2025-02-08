@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev | Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('img/dev-reg.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #0f0a0a;
+            overflow: hidden; /* Hide scroll bar */
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .form-group label {
+            color: #183b86;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .form-control {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .form-control::placeholder {
+            color: #ddd;
+        }
+        .form-control:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.5);
+            border-color: #2a5298;
+        }
+        .btn {
+            border-radius: 10px;
+            font-weight: 700;
+            background-color: #2a5298;
+            color: white;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            background-color: #1e3c72;
+            transform: scale(1.05);
+        }
+        .btn:after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            width: 300%;
+            height: 300%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: rippleEffect 0.6s linear;
+        }
+        @keyframes rippleEffect {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .skill-tag {
+            background-color: #2a5298;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .skill-option {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .skill-option:hover {
+            background-color: #2a5298;
+            color: white;
+        }
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <h2 style="color: #1e3c72;">Developer Registration</h2>
+        <form id="devRegistrationForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">
+                <label for="salary">Expected Salary (INR)</label>
+                <input type="number" class="form-control" id="salary" placeholder="Enter expected salary" required>
+            </div>
+            <div class="form-group">
+                <label for="portfolio">Portfolio Link</label>
+                <input type="url" class="form-control" id="portfolio" required>
+            </div>
+            <div class="form-group">
+                <label for="job_location">Expected Job Location</label>
+                <input type="text" class="form-control" id="job_location" required>
+            </div>
+            <div class="form-group">
+                <label for="projects">Projects</label>
+                <input type="url" class="form-control" id="projects" required>
+                <label for="project_description">Project Description</label>
+                <textarea class="form-control" id="project_description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="job_status">Current Job Status</label>
+                <select class="form-control" id="job_status" required>
+                    <option value="working">Working</option>
+                    <option value="freelance">Freelance</option>
+                    <option value="unemployed">Unemployed</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <div id="skillsOptions" class="d-flex flex-wrap">
+                    <div class="skill-option" data-skill="html">HTML</div>
+                    <div class="skill-option" data-skill="css">CSS</div>
+                    <div class="skill-option" data-skill="javascript">JavaScript</div>
+                    <div class="skill-option" data-skill="python">Python</div>
+                    <div class="skill-option" data-skill="java">Java</div>
+                    <div class="skill-option" data-skill="php">PHP</div>
+                    <div class="skill-option" data-skill="sql">SQL</div>
+                    <div class="skill-option" data-skill="jquery">jQuery</div>
+                    <div class="skill-option" data-skill="bootstrap">Bootstrap</div>
+                    <div class="skill-option" data-skill="react">React</div>
+                </div>
+            </div>
+            
+            <div id="skillsDisplay" class="skills-container"></div>
+            
+            <button type="submit" class="btn btn-block">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Handle skill selection
+        document.querySelectorAll('.skill-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const selectedSkill = this.getAttribute('data-skill');
+                
+                // Create the skill tag to display
+                const skillTag = document.createElement('div');
+                skillTag.classList.add('skill-tag');
+                skillTag.textContent = this.textContent;
+                
+                // Add the skill tag to the display area
+                document.getElementById('skillsDisplay').appendChild(skillTag);
+                
+                // Disable the clicked option (optional)
+                this.style.pointerEvents = 'none';
+                this.style.opacity = '0.5';
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('devRegistrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            alert('Registration Successful! Redirecting to login page...');
+            window.location.href = 'dev_login.html'; // Redirect to the login page
+        });
+    </script>
+</body>
+</html>

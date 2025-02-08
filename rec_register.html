@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rec | Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* General body styles */
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container styling */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 420px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+        }
+
+        /* Heading styling */
+        .container h1 {
+            color: #0c2550;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-size: 26px;
+        }
+
+        /* Form group and label styling */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Input fields styling */
+        .form-control {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
+        /* Submit button styling */
+        .btn {
+            background: #2575fc;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #6a11cb;
+            transform: scale(1.05);
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* Additional animations */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .btn, .form-control {
+            animation: bounce 0.5s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recruiter Registration</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">
+                <label for="adhar">Aadhar Number</label>
+                <input type="text" class="form-control" id="adhar" placeholder="Enter 12-digit Aadhar number" pattern="\d{12}" required>
+                <span class="error-message" id="adharError"></span>
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" placeholder="Enter company name" required>
+            </div>
+            <button type="submit" class="btn btn-block">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const adhar = document.getElementById('adhar').value;
+            const company = document.getElementById('company').value;
+
+            const formData = {
+                name: name,
+                email: email,
+                password: password,
+                adhar: adhar,
+                company: company
+            };
+
+            // Perform client-side validation
+            const emailError = document.getElementById('emailError');
+            const adharError = document.getElementById('adharError');
+            let isValid = true;
+
+            // Email validation
+            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Aadhar number validation
+            if (!adhar.match(/^\d{12}$/)) {
+                adharError.textContent = 'Aadhar number must be 12 digits.';
+                isValid = false;
+            } else {
+                adharError.textContent = '';
+            }
+
+            if (!isValid) {
+                return; // Stop submission if validation fails
+            }
+
+            // If validation passes, show success message and redirect
+            alert('Registration successful!');
+            window.location.href = 'rec_login.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevMatch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        header {
+            width: 100%;
+            padding-top: 15px;
+            padding: 30px 0;
+            background-color: #2a5298;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            padding-top: 15px;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 3s steps(30) 1s infinite, blink-caret 0.75s step-end infinite;
+        }
+
+        /* Typing animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Blinking caret effect */
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 100%;
+            margin: 20px;
+        }
+
+        .btn {
+            margin: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        footer {
+            width: 100%;
+            padding: 15px;
+            background-color: #080808;
+            color: white;
+            text-align: center;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to DevMatch</h1>
+        <h2>Connecting Developers with Opportunities and Projects</h2>
+    </header>
+
+    <div class="container">
+        <h3>Developer Section</h3>
+        <a href="dev_register.html" class="btn btn-primary btn-block">Developer Register</a>
+        <a href="dev_login.html" class="btn btn-secondary btn-block">Developer Login</a>
+    </div>
+
+    <div class="container">
+        <h3>Recruiter Section</h3>
+        <a href="rec_register.html" class="btn btn-success btn-block">Recruiter Register</a>
+        <a href="rec_login.html" class="btn btn-warning btn-block">Recruiter Login</a>
+    </div>
+
+    <footer>
+        Developer Hiring & Collaboration Hub
+        <p>&copy; 2025 DevMatch. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
